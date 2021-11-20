@@ -1,4 +1,4 @@
-Welcome to the Jargon File
+Welcome to the Jargon File (Community Edition)
 ==========
 
 This is the Jargon File, a comprehensive compendium of hacker slang illuminating many aspects of hackish tradition, folklore, and humor.
