@@ -11,7 +11,7 @@ This document (the Jargon File) is in the public domain, to be freely used, shar
 
 Versions will peridocally be created when enough changes are adopted to warrant one.
 
-The Jargon File is a common heritage of the hacker culture. Over the years a number of individuals have volunteered considerable time to maintaining the File and been recognized by the net at large as editors of it. Editorial responsibilities include: to collate contributions and suggestions from others; to seek out corroborating information; to cross-reference related entries; to keep the file in a consistent format; and to announce and distribute updated versions periodically. Current volunteer editors include:
+The Jargon File is a common heritage of the hacker culture. Over the years a number of individuals have volunteered considerable time to maintaining the File and been recognized by the net at large as editors of it. Editorial responsibilities include: to collate contributions and suggestions from others; to seek out corroborating information; to cross-reference related entries; to keep the file in a consistent format; and to announce and distribute updated versions periodically.
 
 Although there is no requirement that you do so, it is considered good form to check with an editor before quoting the File in a published work or commercial product. We may have additional information that would be helpful to you and can assist you in framing your quote to reflect not only the letter of the File but its spirit as well.
 
@@ -21,7 +21,7 @@ All contributions and suggestions about this file sent to a volunteer editor are
 
 Check out our [discussion page](https://github.com/agiacalone/jargonfile/discussions/2) on how to submit a change to the Jargon File
 
-### Info on the editor / maintainer
+### Info on the editor / maintainers
 
 The current editor is Anthony Giacalone <anthonyg@sdf.org>. He is a lecturer at CSU Long Beach and long-time hacker.
 
