@@ -15,6 +15,10 @@ Although there is no requirement that you do so, it is considered good form to c
 
 All contributions and suggestions about this file sent to a volunteer editor are gratefully received and will be regarded, unless otherwise labelled, as freely given donations for possible use as part of this public-domain file.
 
+### Want to make a submission?
+
+Check out our [discussion page](https://github.com/agiacalone/jargonfile/discussions/2) on how to submit a change to the Jaron File
+
 The current maintainer is Anthony Giacalone <anthonyg@sdf.org>
 
 The current maintenance repository can be found at https://github.com/agiacalone/jargonfile
