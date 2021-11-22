@@ -1,0 +1,9 @@
+Also, and quite appropriately, the link to 404 is 404 (as is the link to
+404-compliant) - both in the change log and in the glossary itself.  The
+links say "http://www.catb.org/~esr/jargon/html/0/404.html" and
+"http://.../404-compliant.html", respectively; but going through the
+root (http://.../0.html) the entries are found under
+"http://www.catb.org/~esr/jargon/html/0/code-404.html" and
+"http://.../code-404-compliant.html", respectively.  (Apologies if my
+method of URL abbreviation is non-standard.)
+

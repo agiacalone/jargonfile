@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type"
+    content="text/html; charset=iso-8859-1" />
+    <meta name="Author" content="Cherniavsky Beni" />
+    <link rel="stylesheet" href="jargon.css" type="text/css"/>
+    <title>Jargoogle - Jargon File search with Google</title>
+  </head>
+
+  <body>
+    <table width="100%" cellpadding="0" summary="Canned page header">
+    <tr>
+    <td width="30%">Back to <a href="index.html">Jargon File Resources</a></td>
+    <td width="30%" align="center">Up to <a href="/~esr/sitemap.html">Site Map</a></td>
+    <td width="30%" align="right">$Date: 2003/10/27 05:33:06 $</td>
+    </tr>
+    </table>
+    <hr />
+
+    <img src='graphics/glider-small.png' align='left'/>
+    <h1 class='centered'>Search Jargoogle</h1>
+
+    <form method="get" action="http://www.google.com/search">
+      <table bgcolor="#FFFFFF" summary="">
+        <tr>
+          <td><a
+          href="http://www.google.com/advanced_search?q=site:www.catb.org:~war/jargon"><img
+           src="http://www.google.com/logos/Logo_40wht.gif" alt="Google Logo"
+          border="0" align="middle" /></a></td>
+
+          <td><input type="text" name="as_q" size="31" maxlength="255"
+          value="" /> <input type="hidden" name="as_sitesearch"
+          value="www.catb.org" /> <input type="submit" name="btnG"
+          value="Google Search" /> <input type="submit" name="btnI"
+          value="I'm Feeling Lucky" /></td>
+        </tr>
+      </table>
+    </form>
+    The logo points to an Advanced search set up for Jargon search and is a
+    good bookmark candidate, as well as this page itself. If you have
+    Netscape or MSIE with JavaScript the following are probably better: 
+
+    <h1>Browser buttons</h1>
+
+    <p>Just drag the appropriate links onto your personal toolbar:<br />
+    <br />
+    </p>
+
+    <table border="1" summary="">
+      <tr>
+        <td>
+        </td>
+
+        <th>Google Search</th>
+
+        <th>I'm feeling lucky</th>
+      </tr>
+
+      <tr>
+        <th>Netscape</th>
+
+        <td><a
+        href="javascript:q=document.getSelection();for(i=0;i%3Cframes.length;i++){q=frames[i].document.getSelection();if(q)break;}if(!q)void(q=prompt('Enter%20text%20to%20search%20using%20Google.%20You%20can%20also%20highlight%20a%20word%20on%20this%20web%20page%20before%20clicking%20Google%20Search.',''));if(q)location.href='http://www.google.com/search?client=googlet&amp;q='+escape(q)+'+site:www.catb.org'">
+        Jargoogle</a></td>
+
+        <td><a
+        href="javascript:q=document.getSelection();for(i=0;i%3Cframes.length;i++){q=frames[i].document.getSelection();if(q)break;}if(!q)void(q=prompt('Enter%20text%20to%20search%20using%20Google.%20You%20can%20also%20highlight%20a%20word%20on%20this%20web%20page%20before%20clicking%20Google%20Search.',''));if(q)location.href='http://www.google.com/search?client=googlet&amp;btnI=Im+Feeling+Lucky&amp;q='+escape(q)+'+site:www.catb.org'">
+        Lucky Jargoogle</a></td>
+      </tr>
+
+      <tr>
+        <th>MSIE</th>
+
+        <td><a
+        href="javascript:q=(document.frames.length?'':document.selection.createRange().text);for(i=0;i%3Cdocument.frames.length;i++){q=document.frames[i].document.selection.createRange().text;if(q!='')break;}if(q=='')void(q=prompt('Enter%20text%20to%20search%20using%20Google.%20You%20can%20also%20highlight%20a%20word%20on%20this%20web%20page%20before%20clicking%20Google%20Search.',''));if(q)location.href='http://www.google.com/search?client=googlet&amp;q='+escape(q)+'+site:www.catb.org'">
+        Jargoogle</a></td>
+
+        <td><a
+        href="javascript:q=(document.frames.length?'':document.selection.createRange().text);for(i=0;i%3Cdocument.frames.length;i++){q=document.frames[i].document.selection.createRange().text;if(q!='')break;}if(q=='')void(q=prompt('Enter%20text%20to%20search%20using%20Google.%20You%20can%20also%20highlight%20a%20word%20on%20this%20web%20page%20before%20clicking%20Google%20Search.',''));if(q)location.href='http://www.google.com/search?client=googlet&amp;btnI=Im+Feeling+Lucky&amp;q='+escape(q)+'+site:www.catb.org'">
+        Lucky Jargoogle</a></td>
+      </tr>
+    </table>
+
+    <p class="c1">Some bugs in the javascript have been fixed (both
+    browsers).</p>
+
+    <p>I'm told that these won't work on MSIE 6; I also think they won't work
+    before Netscape 4 and MSIE 4. Try them and please report any failures
+    (see email at bottom).</p>
+
+    <p>Can somebody explain to me why the same search (try `foo bar' (two
+    words)) gives different results on Netscape and MSIE?<br />
+    <br />
+    </p>
+    <hr />
+
+    <h1>How does it work?</h1>
+
+    <p>There is no magic to it; no search engine called Jargoogle was setup
+    by me; it's just a convenient interface to Google hiding an additional
+    restriction added to your request.</p>
+
+    <h2>Google's feature used</h2>
+
+    <p>Note: All my knowledge of Google's features is all acquired by
+    expirement/guessing and might be
+    inaccurate/incomplete/intrustable/incorrect.</p>
+
+    <p>Google claims:</p>
+
+    <blockquote>
+      The word "site" followed by a colon enables you to restrict your search
+      to a specific site. To do this, use the "site:sampledomain.com" syntax
+      in the Google search box.
+    </blockquote>
+    I tried it and although it actually accepts only domain names, it gets
+    accurate results when searching for a jargon term within
+    <samp>www.catb.org</samp> (that's the domain where the Jargon File
+    resources page resides). For example searching for: 
+
+    <blockquote>
+      <samp>foobar site:www.catb.org</samp>
+    </blockquote>
+    results in: 
+
+    <blockquote>
+      <samp>http://www.catb.org/~esr/jargon/html/entry/foobar.html</samp>
+    </blockquote>
+
+    <p>as the first match, which is the Right Page.</p>
+
+    <h2>Google CGI Interface for it</h2>
+
+    <p>Note: I don't know CGI well; the terminology might differ from the
+    accepted one.</p>
+
+    <p>Google has two CGI interfaces that provide same input for the search
+    engine from different form inputs. The first is the simple search at
+    `<samp>http://www.google.com/search?</samp>' and the second is the
+    advanced search at
+    `<samp>http://www.google.com/advanced_search?</samp>'.</p>
+
+    <p>Both searches accept two submit inputs: `<samp>btnG</samp>' for normal
+    search and `<samp>btnI</samp>' for "I'm feeling lucky" searches. Only
+    their presence matters; the values are ignored, which allows freedom in
+    the button names (the value is taken from the button name which is not a
+    great design decision IMHO). Hint: if nothing is found (press random keys
+    for search text :), you will be able see the search string and URL
+    actually with "I'm feeling lucky".</p>
+
+    <p>The simple search accepts the search request in one string as the
+    `<samp>q</samp>' input. This is good enough for the JavaScript in the
+    toolbar buttons, but not for the HTML from. The advanced search builds
+    the search request from parts given in separate inputs.
+    `<samp>as_q</samp>' acts as `<samp>q</samp>' in the simple search but
+    it's combined with values from other input fields. In paticular if
+    `<samp>as_sitesearch</samp>' is specified, it's value is prepended with `
+    <samp>site:</samp>' and concatenated onto the search string.</p>
+
+    <p>The Jargoogle search form is a cut-down version of Google Advanced
+    search form. It includes only the main `<samp>as_q</samp>' field and a
+    hidden `<samp>as_sitesearch</samp>' field set to
+    `<samp>www.catb.org</samp>'</p>
+
+    <p>In the absence of either submit inputs the simple search defualt to
+    regular (unlucky :-) Google search and the advanced search presents the
+    adnvaced search page with the value of `<samp>as_q</samp>' parsed into
+    the various boxes. That's used tby Google to switch from simple search to
+    advanced search when you have already typed part of the search. I used it
+    to make the Google logo point to the advance search page initialized with
+    the domain restriction.</p>
+
+    <p>The toolbar buttons provided by Google also provide a
+    `<samp>client</samp>' input with `<samp>googlet</samp>' value which seems
+    to do nothing (I tried both ways). I left it in, guessing that they might
+    be collecting statistics of toolbar button usage, and the Jargon version
+    probably should be included.</p>
+
+    <h2>The JavaScript buttons dissected</h2>
+
+    <p>These are simple extensions of the buttons provided by Google, at the
+    sofistication level of a script kiddie (select the previous 2 words and
+    press the Lucky Jargoogle button, see meaning 2 :-). The description
+    provides my understanding of the code, as I [want to] know nothing about
+    JavaScript. You might be better off just reading the code in the page
+    source - the same holds for the above explanations about CGI.</p>
+
+    <p>The buttons are links whose URL begins with
+    `<samp>javascript:</samp>'. It is followed by the javascript code, on one
+    line, URL encoded and without spaces. I have removed URL encoding, added
+    spacing and indentation here so that you can read it. Ignore the
+    indentation style if you dislike it.</p>
+
+    <p>The first thing that is done is to try to get the selection to
+    simplify search of a jargon term appearing on some web site. This is (of
+    course) not portable accross browsers, especially contsidering that we
+    have to check for the selection in every frame:</p>
+
+    <dl>
+      <dt>Netscape:</dt>
+
+      <dd>
+<pre>
+<code>q = document.getSelection();
+for(i = 0; i &lt; frames.length; i++) {
+   q = frames[i].document.getSelection();
+   if(q)
+      break;
+}</code>
+</pre>
+      </dd>
+
+      <dt>MSIE:</dt>
+
+      <dd>
+<pre>
+<code>q = (document.frames.length ? '' : document.selection.createRange().text);
+for(i = 0; i &lt; document.frames.length; i++)
+{
+   q = document.frames[i].document.selection.createRange().text;
+   if(q != '')
+      break;
+}</code>
+</pre>
+      </dd>
+    </dl>
+
+    <p>The second thing to do is to prompt for the search string if no
+    selection was found. This code could be portable if the check was - I
+    haven't tried to make it the same on both browsers (lazyness...) but if
+    it's a real difference it might result from the above Netscape code
+    giving 0 or null vs. the MSIE code giving an empty string if no selection
+    is found. The string split for readability by me:</p>
+
+    <dl>
+      <dt>Netscape:</dt>
+
+      <dd>
+<pre>
+<code>if(!q)
+   void(q = prompt('Enter text to search using Google. You can also highlight ' +
+                   'a word on this web page before clicking Google Search.', ''));</code>
+</pre>
+      </dd>
+
+      <dt>MSIE:</dt>
+
+      <dd>
+<pre>
+<code>if(q == '')
+   void(q = prompt('Enter text to search using Google. You can also highlight ' +
+                   'a word on this web page before clicking Google Search.', ''));</code>
+</pre>
+      </dd>
+    </dl>
+
+    <p>The last thing left to do is to create the URL unless "Cancel" was
+    pressed. (Loading seems to be automagically triggered by the change of
+    the current location). At least this is portable. Even the check is,
+    probably because prompt() returns 0 or null if "Cancel" is pressed in
+    both browsers.</p>
+<pre>
+<code>if(q)
+   location.href = 'http://www.google.com/search?client=googlet&amp;q=' +
+                   escape(q) +
+                   '+site:www.catb.org'</code>
+</pre>
+
+    <p>Of course no closing semicolon is needed as this is the last
+    statement. It's known that all C-inspired languages use Pascal syntax
+    ;-).</p>
+
+    <p>If you want to have an "I'm feeling lucky" search, just add the
+    `<samp>btnI</samp>' input:</p>
+<pre>
+<code>if(q)
+   location.href = 'http://www.google.com/search?client=googlet&amp;btnI=Im+Feeling+Lucky&amp;q=' +
+                   escape(q) +
+                   '+site:www.catb.org'</code>
+</pre>
+
+    <p>Now you just have to combine these together.</p>
+    <hr />
+    <table width="100%" cellpadding="0" summary="Canned page header">
+    <tr>
+    <td width="30%">Back to <a href="index.html">Jargon File Resources</a></td>
+    <td width="30%" align="center">Up to <a href="/~esr/sitemap.html">Site Map</a></td>
+    <td width="30%" align="right">$Date: 2003/10/27 05:33:06 $</td>
+    </tr>
+    </table>
+    <br clear="left" />
+    <address>
+      The "research" was performed and documented in this page by <a
+      href="mailto:cben@tx.technion.ac.il">Beni Cherniavsky</a>. Please email
+      with any corrections/improvements you have.
+    </address>
+  </body>
+</html>
+

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="stylesheet" href="jargon.css" type="text/css"/>
+<link rev="made" href="mailto:esr@snark.thyrsus.com" />
+<title>Mirroring, Redistributing, and Reformatting the Jargon File</title>
+</head>
+<body>
+<table width="100%" cellpadding="0" summary="Canned page header">
+<tr>
+<td width="30%">Back to <a href="index.html">Jargon File Resources</a></td>
+<td width="30%" align="center">Up to <a href="/~esr/sitemap.html">Site Map</a></td>
+<td width="30%" align="right">$Date: 2003/10/27 05:33:06 $</td>
+</tr>
+</table>
+<hr />
+
+<img src='graphics/glider-small.png' align='left'/>
+<h1 class="centered">Mirroring and Redistributing the Jargon File</h1>
+
+<p>The Jargon File is in the public domain, to be freely used, shared, and
+modified. There are (by intention) no legal restraints on what you can do
+with it, but there are conventions about its proper use which help people a
+lot of get the best use out of it, and minimize hassles for the maintainers.
+They're simple:</p>
+
+<ul>
+<li>Get the latest version to mirror or redistribute.</li>
+
+<li>Don't mirror or convert by hand!</li>
+</ul>
+
+<p>We encourage people to mirror the Jargon File WWW resources. Just
+copy all the HTML files under the jargon FTP directory at <a
+href="http://catb.org/~esr/jargon/">http://catb.org/~esr/jargon/</a>.
+Follow the directions in the <code>INSTALL-HTML</code> file. And tell
+us that you've done it so we can add you to our <a
+href="mirrorlist.html">list of mirrors</a>.</p>
+
+<p>Most links in the Jargon subweb are relative (in particular, all links to
+files below the Jargon File Resources directory are local). Thus, it
+shouldn't be necessary for you to edit URLs in the copy.</p>
+
+<p>Note: <em>we strongly discourage</em> mirroring by hand, it leads to old
+mirrors not getting updated later on. It's a lot smarter to write a script
+that periodically re-copies everything...say, once every 30 or 60 days (or,
+better yet, checks more often to see if a re-copy is needed by comparing file
+dates). That way you'll stay up to date.</p>
+
+<p>We're told that the following command mirrors the Jargon resources to a
+specified local-dir:</p>
+
+<pre>
+wget -m http://catb.org/~esr/jargon/ -nH --cut-dirs=2 -np -L -P /home/httpd/htdocs/jargon
+</pre>
+
+<p>To use this, you'll need to have <a
+href="ftp://ftp.gnu.org/gnu/wget">wget</a> available in your path.</p>
+
+<h1>Re-distributing the Jargon File</h1>
+
+<p>If you distribute a free Unix (like Linux or one of the free BSD variants)
+we encourage you to include the Jargon File HTML version as part of your
+system documentation tree.</p>
+
+<h1>Re-packaging the Jargon File</h1>
+
+<p>We also encourage people to repackage the HTML Jargon File content in
+their own favorite formats (RTF, FrameMaker, Hypercard, etc.) and
+redistribute it. We'll even help you do it. With these conditions:</p>
+
+<ul>
+<li>Don't convert by hand!</li>
+
+<li>Send us a copy of your conversion stylsheet of script.</li>
+
+<li>Please don't publish a printed version.</li>
+
+<li>If you edit the File's content, clearly so indicate!</li>
+</ul>
+
+<p>Once again, <em>we strongly discourage</em> hand-hacking. Don't do it! It
+only leads to one-off conversions that never get redone and age rapidly,
+causing headaches down the road for everyone.</p>
+
+<p>The Jargon File masters are maintained in XML Docbook.  If there 
+is an existing converter or stylesheet that will grind out your format,
+you're done.</p>
+
+<p>The World Wide Web Consortium maintains a page of <a
+href="http://www.w3.org/pub/WWW/Tools/html2things.html">HTML converters</a>
+you may be able to use to do most of the donkey-work for your conversion.</p>
+
+<p>Otherwise, you're probably best off learning XSLT and
+writing a stylesheet.  While it might be possible to write a script 
+to massage the generated HTML into your preferred formart, learning
+XSLT would probably be easier.</p>
+
+<p>Once you have a nice polished conversion, send us a pointer to or copy of
+your converter. We'll make it available (on this page) so nobody has to do
+the work twice.</p>
+
+<p>Please don't publish or distribute printed versions of the Jargon File. We
+can't legally stop you, but you shouldn't do it anyway. The File has a paper
+publisher (MIT Press) and a paper version, <cite>The New Hacker's
+Dictionary</cite>. They were good sports about the electronic re-distribution
+rights -- let's not make them regret that.</p>
+
+<p>Finally, if you edit the Jargon File's actual content in any substantive
+way, please stick a notice right up front on your copy explaining who did it
+and why. We'd rather not be held responsible for anyone else's editing --
+it's enough work being responsible for our own!</p>
+
+<hr />
+<table width="100%" cellpadding="0" summary="Canned page header">
+<tr>
+<td width="30%">Back to <a href="index.html">Jargon File Resources</a></td>
+<td width="30%" align="center">Up to <a href="/~esr/sitemap.html">Site Map</a></td>
+<td width="30%" align="right">$Date: 2003/10/27 05:33:06 $</td>
+</tr>
+</table>
+<br clear="left" />
+<address>Eric S. Raymond <a
+href="mailto:esr@thyrsus.com">&lt;esr@snark.thyrsus.com&gt;</a></address>
+</body>
+</html>
+
