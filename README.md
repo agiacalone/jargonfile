@@ -17,4 +17,4 @@ All contributions and suggestions about this file sent to a volunteer editor are
 
 The current maintainer is Anthony Giacalone <anthonyg@sdf.org>
 
-The current maintenance repository can be found at (https://github.com/agiacalone/jargonfile)
+The current maintenance repository can be found at https://github.com/agiacalone/jargonfile
