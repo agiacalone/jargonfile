@@ -19,6 +19,8 @@ All contributions and suggestions about this file sent to a volunteer editor are
 
 Check out our [discussion page](https://github.com/agiacalone/jargonfile/discussions/2) on how to submit a change to the Jaron File
 
-The current maintainer is Anthony Giacalone <anthonyg@sdf.org>
+### Info on the editor / maintainer
 
-The current maintenance repository can be found at https://github.com/agiacalone/jargonfile
+The current editor is Anthony Giacalone <anthonyg@sdf.org>. He is a lecturer at CSU Long Beach and long-time hacker.
+
+The official maintenance repository can be found at https://github.com/agiacalone/jargonfile
