@@ -15,6 +15,6 @@ Although there is no requirement that you do so, it is considered good form to c
 
 All contributions and suggestions about this file sent to a volunteer editor are gratefully received and will be regarded, unless otherwise labelled, as freely given donations for possible use as part of this public-domain file.
 
-From time to time a snapshot of this file has been polished, edited, and formatted for commercial publication with the cooperation of the volunteer editors and the hacker community at large. If you wish to have a bound paper copy of this file, you may find it convenient to purchase one of these. They often contain additional material not found in on-line versions. The three ‘authorized’ editions so far are described in the Revision History section; there may be more in the future.
+The current maintainer is Anthony Giacalone <anthonyg@sdf.org>
 
-The Jargon File's online rendition uses an unusually large number of special characters. This test page lists them so you can check what your browser does with each one.
+The current maintenance repository can be found at (https://github.com/agiacalone/jargonfile)
