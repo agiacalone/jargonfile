@@ -1,0 +1,14 @@
+#!/bin/sh
+
+for n in $*
+do
+	file=jarg${n}.txt
+	words=wordlist${n}
+	set -- `wc -l $words` 
+	wordcount=$1
+	set -- `wc $file`
+	lines=$1
+	words=$2
+	chars=$3
+	echo "$file:	$wordcount	$lines	$words	$chars"
+done

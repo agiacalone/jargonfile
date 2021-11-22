@@ -1,0 +1,242 @@
+#!/usr/bin/env python
+#
+# diffreport -- generate Jargon File change report from version wordlists
+#
+import os, sys, string, getopt, copy
+
+# Tavble of lexical equivalents for renames 
+equivalents = (\
+    ("(tm)", "(TM)", "TM"),
+    ("16-inch rotary debugger", "rotary debugger"),
+    ("2 (infix)", "2 infix", "2"),
+    ("@-party", "@-sign party"),
+    ("Berzerkely", "Berzerkeley"),
+    ("Big Gray Wall", "Big Grey Wall"),
+    ("Chinese ravs", "ravs"),
+    ("Church of the SubGenius", "Church of the Sub-Genius"),
+    ("D. C. Power Lab", "DC Power Lab"),
+    ("Kool-Aid, to drink the", "Kool-Aid"),
+    ("Mbogo, Dr. Fred", "Dr. Fred Mbogo"),
+    ("NP-", "NP-*"),
+    ("ONE BELL SYSTEM", "ONE BELL SYSTEM (IT WORKS)", "one bell system (it works)"),
+    ("Ob", "Ob-"),
+    ("READ.ME file", "README file"),
+    ("S.O.", "SO"),
+    ("U*IX, UN*X", "UN*X"),
+    ("YA*", "YA-"),
+    ("YKYBHTL", "YKYBHTLW"),
+    ("aliasing bug", "aliasing screw"),
+    ("angle bracket", "angle brackets"),
+    ("asbestos longjohns", "asbestos longjohns, underpants", "asbestos longjohns, undies"),
+    ("bells, whistles, and gongs", "bells whistles and gongs"),
+    ("big red switch", "Big Red Switch"),
+    ("bignum", "bignums"),
+    ("bottlenecked", "bottleneck"),
+    ("box comments", "boxed comments"),
+    ("bug compatible", "bug-for-bug compatible"),
+    ("bzzzt, wrong", "Bzzzt!  Wrong.", "Bzzzt! Wrong."),
+    ("catatonia", "catatonic"),
+    ("com mode", "comm mode", "com mode, comm mode", "com[m] mode"),
+    ("compatible", "bug-compatible"),
+    ("computer geek", "geek"),
+    ("creeping featurism", "creeping featuritis"),
+    ("cruft", "cruft together", "cruft together, cruft up"),
+    ("de-rezz", "de-rezz, derez"),
+    ("diff", "diffs"),
+    ("dusty deck", "dusty decks"),
+    ("eat flaming death", "eat flaming death, X", "eat flaming death, X!"),
+    ("fascist", "fascistic"),
+    ("feeping creaturism", "feeping creaturitis"),
+    ("flaky", "flaky, flakey"),
+    ("frog", "frog, phrog"),
+    ("golden diskette", "golden"),
+    ("h infix", "h"),
+    ("harcoded", "hardcoded"),
+    ("hello sailor", "hello sailor!", "hello, sailor!"),
+    ("hello wall", "hello wall!", "hello, wall!"),
+    ("hello world", "hello world!", 'hello, world'),
+    ("hot spot", "hot spots"),
+    ("hacker humor", "humor, hacker", "Hacker Humor", "Humor, Hacker"),
+    ("hackishness, hackitude", "hackishness"),
+    ("humungous", "humongous, humungous", "humongous"),
+    ("index", "index of X"),
+    ("jump off into never-never land", "jump off into never never land"),
+    ("literature, the", "the literature"),
+    ("meltdown", "meltdown, network"),
+    ("mouso", "mousoh"),
+    ("na\"ive user", "naive user"),
+    ("naive", "na\"ive"),
+    ("net.", "net.-", "net.*"),
+    ("network, the", "the network"),
+    ("newgrp wars", "newgroup wars"),
+    ("non-optimal", "non-optimal solution", "non-optimal (or sub-optimal) solution"),
+    ("null device", "/dev/null"),
+    ("peek/poke", "peek"),
+    ("pizza, ANSI standard", "ANSI standard pizza"),
+    ("precedence lossage", "precedence screw"),
+    ("pretty print", "prettyprint"),
+    ("quick and dirty", "quick-and-dirty"),
+    ("rare", "rare mode"),
+    ("recursive acronym", "recursive acronyms"),
+    ("regular expressions", "regular expression"),
+    ("segmentation fault", "segmentation fault (or violation)"),
+    ("second-system effect", "second-system syndrome"),
+    ("shift left", "shift left (right) logical", "shift left (or right) logical"),
+    ("source of all goot bits", "source of all good bits"),
+    ("sorcerer's apprentice mode", "sorceror's apprentice mode"),
+    ("swap", "swapped"),
+    ("tea, ISO standard cup of", "ISO standard cup of tea"),
+    ("wall fallower", "wall follower"),
+    ("wash software", "washing software")
+    )
+
+def canonicalize(str):
+    "Ignore certain transformations when figuring renames"
+    if str.endswith(", the"):
+        str = str[:-5]
+    str = str.lower().replace(" ", "-").replace(",", "").replace("  ", " ")
+    while str[-1] in (".", "!"):
+        str = str[:-1]
+    return str
+
+def safedump(str):
+    return str.replace('\\', '\\\\').replace('"i', '&iuml;').replace('"', '\\"')
+
+def dotify(str):
+    return str[0] + "." + str[1] + "." + str[2:]
+
+(options, arguments) = getopt.getopt(sys.argv[1:], "l")
+
+files = ["/dev/null"] + map(lambda x: "wordlist" + x,  arguments)
+arguments = ["0.0.0"] + arguments
+
+lisp = 0
+for (switch, val) in options:
+    if switch == "-l":
+        lisp = 1
+
+# Ugh...we have to patch in some name mappings by hand, otherwise some
+# rename chains will never get patched across gaps were an entry dropped
+# out and then back in again.
+handhacks = {
+	'bignums': 'bignum',
+	'humongous, humungous': 'humongous',
+	'humungous': 'humongous',
+        'Ninety-Ninety Rule, The': 'Ninety-Ninety Rule',
+        'pdl': 'PDL',
+        'Right Thing, the': 'Right Thing',
+        'Right Thing, The': 'Right Thing',
+        "regular expressions": "regexp",
+        "regular expression": "regexp",
+        "compatible": "bug-compatible",
+        'dec': 'DEC',
+	}
+
+# We have to accumulate all actions so that we can use the name
+# map to emit true names
+actions = []
+namemap = copy.copy(handhacks)
+for i in range(len(files)-1):
+    fp = os.popen("comm -13 %s %s" % (files[i], files[i+1]))
+    version = arguments[i+1]
+    changelist = []
+    additions = map(string.strip, fp.readlines())
+    fp.close()
+    fp = os.popen("comm -23 %s %s" % (files[i], files[i+1]))
+    deletions = map(string.strip, fp.readlines())
+    fp.close()
+    renames = []
+    for d in deletions:
+        try:
+            for a in additions:
+                match = 0
+                if canonicalize(a) == canonicalize(d):
+                    match = 1
+                else:
+                    for e in equivalents:
+                        if d in e and a in e:
+                            match = 1
+                            break
+                if match:
+                    renames.append((d, a))
+                    # This guard prevents deductions from renames from
+                    # stepping on the hand-hacked rules we seeded in above.
+                    if not a in handhacks:
+                        # Arrgghh!  We have to do cycle detection here
+                        # in case something gets renamed and then renamed back.
+                        chaser = a
+                        while chaser in namemap:
+                            if namemap[chaser] == d:
+                                del namemap[a]
+                                break
+                            else:
+                                chaser = namemap[chaser]
+                        namemap[d] = a
+                        raise "OUT"
+        except "OUT": 
+            pass
+    for (old, new) in renames:
+        if old in deletions:
+            deletions.remove(old)
+        if new in additions:
+            additions.remove(new)
+    for word in additions:
+        changelist.append((word, "add"))
+    for word in deletions:
+        changelist.append((word, "delete"))
+    changelist.sort(lambda x, y: cmp(x[0].lower(), y[0].lower()))
+    actions.append((version, changelist, renames))
+
+# Now emit the report
+if lisp:
+    #print "(setq all-versions '(" + " ".join(map(lambda x: '"%s"' % dotify(x), arguments)) + "))"
+    print '(set-buffer (get-buffer-create "*grind*"))'
+    print "(erase-buffer)"
+    print "(setq namemap '("
+    keys = namemap.keys(); keys.sort()
+    for key in keys:
+        value = namemap[key]
+        while value in namemap:
+            value = namemap[value]
+        print "  (\"%s\" . \"%s\")" % (safedump(key), safedump(value))
+    print "))"
+    print '(insert "Beginning diff interpretation...\\n")'
+for (rawvers, changelist, renames) in actions:
+    version = dotify(rawvers)
+    for (word, action) in changelist:
+        truename = word
+        while truename in namemap:
+            truename = namemap[truename]
+        if truename != word:
+            trailer = "\t; (as " + `word` + ")"
+        else:
+            trailer = ""
+        truename = safedump(truename)
+        if lisp:
+            print '(jargon-diff-%s\t"%s" \t"%s" )%s' % (action,version,truename, trailer)
+        else:
+            print version + "\t" + action + "\t" + `truename` + trailer
+    for (old, new) in renames:
+        if canonicalize(old) != canonicalize(new):
+            truename = new            
+            while truename in namemap:
+                truename = namemap[truename]
+            if truename != new:
+                trailer = "\t; (true name " + `truename` + ")"
+            else:
+                trailer = ""
+            old = safedump(old)
+            new = safedump(new)
+            truename = safedump(truename)
+            if lisp:
+                print '(jargon-diff-rename\t"%s" \t"%s" \t"%s" "%s")%s' % \
+                      (version, truename, old, new, trailer)
+            else:
+                print version + "\trename\t" + `old` + " -> " + `new` + trailer
+if lisp:
+    print '(jargon-diff-message "Ending diff interpretation")'
+    #print '(jargon-diff-revert)'
+    print '(pop-to-buffer "*grind*")'
+    print '(beginning-of-buffer)'
+# End.
+
