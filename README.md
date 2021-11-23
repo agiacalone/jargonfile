@@ -3,7 +3,7 @@ Welcome to the Jargon File (Community Edition)
 
 This is the Jargon File, a comprehensive compendium of hacker slang illuminating many aspects of hackish tradition, folklore, and humor.
 
-[Jump directly to the Jargon File](https://agiacalone.github.io/jargonfile)
+[Jump directly to the Jargon File](https://agiacalone.github.io/jargonfile/html/index.html)
 
 [See the changes over the years](https://agiacalone.github.io/jargonfile/chaff/chaff.html)
 
