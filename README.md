@@ -3,13 +3,13 @@ Welcome to the Jargon File (Community Edition)
 
 This is the Jargon File, a comprehensive compendium of hacker slang illuminating many aspects of hackish tradition, folklore, and humor.
 
-[Jump directly to the Jargon File](https://ghcdn.rawgit.org/agiacalone/jargonfile/master/html/index.html)
+[Jump directly to the Jargon File](https://agiacalone.github.io/jargonfile)
 
-[See the changes over the years](https://ghcdn.rawgit.org/agiacalone/jargonfile/master/chaff/chaff.html)
+[See the changes over the years](https://agiacalone.github.io/jargonfile/chaff/chaff.html)
 
 This document (the Jargon File) is in the public domain, to be freely used, shared, and modified. There are (by intention) no legal restraints on what you can do with it, but there are traditions about its proper use to which many hackers are quite strongly attached. Please extend the courtesy of proper citation when you quote the File. Historical citations would ideally be with a version number. Since the File is intended to be a "living" document, changing over time, it is best to use the date of access as your reference if you are accessing it today on "modern" interfaces.
 
-Versions will peridocally be created when enough changes are adopted to warrant one.
+Versions will periodically be created when enough changes are adopted to warrant one.
 
 The Jargon File is a common heritage of the hacker culture. Over the years a number of individuals have volunteered considerable time to maintaining the File and been recognized by the net at large as editors of it. Editorial responsibilities include: to collate contributions and suggestions from others; to seek out corroborating information; to cross-reference related entries; to keep the file in a consistent format; and to announce and distribute updated versions periodically.
 
