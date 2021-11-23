@@ -25,4 +25,4 @@ Check out our [discussion page](https://github.com/agiacalone/jargonfile/discuss
 
 The current editor is Anthony Giacalone <anthonyg@sdf.org>. He is a lecturer at CSU Long Beach and long-time hacker.
 
-The official maintenance repository can be found at https://github.com/agiacalone/jargonfile
+The official maintenance repository can be found at <https://github.com/agiacalone/jargonfile>
