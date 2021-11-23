@@ -10,7 +10,7 @@
  * on light text.
  */   
 
- body {
+body {
         /* background-image: url(graphics/linen2d.jpg); */
         background-color: #1D2127;
         color: #CFD9E4;
@@ -19,6 +19,7 @@
 /* default colors used by Mozilla, Galeon, and IE */
 a {
         color: #CFD9E4;
+        background-color: #1D2127;
 }
 
 a:link {
@@ -35,16 +36,19 @@ a:link:active {
 
 h1 {
         font-family: 'Courier New', Courier;
+        /* color: #487C41; */
         text-align: center; 
 }
 
 h2 {
         font-family: 'Courier New', Courier;
+        /* color: #487C41; */
         text-align: center;
 }
 
 h3 {
         font-family: 'Courier New', Courier;
+        /* color: #487C41; */
         text-align: center;
 }
 
