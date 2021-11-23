@@ -11,22 +11,53 @@
  */   
 
  body {
-	/* background-image: url(graphics/linen2d.jpg); */
+        /* background-image: url(graphics/linen2d.jpg); */
         background-color: #1D2127;
         color: #CFD9E4;
- }
+}
 
 /* default colors used by Mozilla, Galeon, and IE */
-a:link    {color: #6599EE;}
-a:visited {color: #A697E9;}
-a:link:active  {color: #E3776C;}
+a {
+        color: #CFD9E4;
+}
+
+a:link {
+        color: #6599EE;
+}
+
+a:visited {
+        color: #A697E9;
+}
+
+a:link:active {
+        color: #E3776C;
+}
+
+h1 {
+        font-family: 'Courier New', Courier;
+        text-align: center; 
+}
+
+h2 {
+        font-family: 'Courier New', Courier;
+        text-align: center;
+}
+
+h3 {
+        font-family: 'Courier New', Courier;
+        text-align: center;
+}
 
 /* for the jargon file itself */
-div.caption	{text-align: center; font-weight: bold;}
-h3.title	{text-align: center;}
-.mediaobject	{text-align: center;}
+div.caption {
+        text-align: center; 
+        font-weight: bold;
+}
 
-/* handles translation of <center> by tidy */
-h1, h2, h3	{font-family: Helvetica, Helvetica, Helvetica}
-h1.centered	{text-align: center;}
-p.c2		{font-weight: bold}
+p.c2 {
+        font-weight: bold
+}
+
+.mediaobject {
+        text-align: center;
+}
