@@ -81,7 +81,17 @@ p.c2 {
 
 /* Mobile: readable text, wrapped nav tables, touch-friendly links */
 @media screen and (max-width: 640px) {
+        html {
+                /* Prevent any content from causing horizontal scroll */
+                overflow-x: hidden;
+                max-width: 100%;
+        }
+
         body {
+                width: 100%;
+                max-width: 100%;
+                box-sizing: border-box;
+                overflow-x: hidden;
                 font-size: 16px;
                 line-height: 1.6;
                 padding: 0 12px;
@@ -94,6 +104,7 @@ p.c2 {
         .navfooter table {
                 display: block;
                 width: 100% !important;
+                box-sizing: border-box;
         }
 
         .navheader tr,
@@ -102,6 +113,7 @@ p.c2 {
                 justify-content: space-between;
                 align-items: center;
                 gap: 4px;
+                width: 100%;
         }
 
         .navheader td,
