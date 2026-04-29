@@ -99,6 +99,13 @@ p.c2 {
                 word-wrap: break-word;
         }
 
+        /* Flatten DocBook's implicit tbody so flex can reach tr/td directly */
+        .navheader tbody,
+        .navfooter tbody {
+                display: block;
+                width: 100%;
+        }
+
         /* Collapse DocBook-generated nav tables into stacked flex rows */
         .navheader table,
         .navfooter table {
@@ -124,6 +131,11 @@ p.c2 {
                 text-align: inherit;
                 flex: 1;
                 min-width: 0;
+        }
+
+        /* Hide the redundant term-name row in entry navheaders on mobile */
+        .navheader tr:first-child {
+                display: none;
         }
 
         /* Larger touch targets for Prev/Next/Up/Home links */
