@@ -2,13 +2,13 @@
 
 /* background image for all jargon pages */
 
-/* 
+/*
  * Edit by agiacalone:
  * removed the background image to give a simpler, more modern
  * look to the jargon file pages. I also prefer dark modes,
  * so the css file has been altered to have dark background
  * on light text.
- */   
+ */
 
 body {
         /* background-image: url(graphics/linen2d.jpg); */
@@ -37,7 +37,7 @@ a:link:active {
 h1 {
         font-family: 'Courier New', Courier;
         /* color: #487C41; */
-        text-align: center; 
+        text-align: center;
 }
 
 h2 {
@@ -54,7 +54,7 @@ h3 {
 
 /* for the jargon file itself */
 div.caption {
-        text-align: center; 
+        text-align: center;
         font-weight: bold;
 }
 
@@ -64,4 +64,102 @@ p.c2 {
 
 .mediaobject {
         text-align: center;
+}
+
+/* ------------------------------------------------------------------ */
+/* Mobile-responsive layout                                            */
+/* ------------------------------------------------------------------ */
+
+/* Desktop: cap content width for readability on wide screens */
+@media screen and (min-width: 900px) {
+        body {
+                max-width: 860px;
+                margin: 0 auto;
+                padding: 0 20px;
+        }
+}
+
+/* Mobile: readable text, wrapped nav tables, touch-friendly links */
+@media screen and (max-width: 640px) {
+        html {
+                /* Prevent any content from causing horizontal scroll */
+                overflow-x: hidden;
+                max-width: 100%;
+        }
+
+        body {
+                width: 100%;
+                max-width: 100%;
+                box-sizing: border-box;
+                overflow-x: hidden;
+                font-size: 16px;
+                line-height: 1.6;
+                padding: 0 12px;
+                overflow-wrap: break-word;
+                word-wrap: break-word;
+        }
+
+        /* Flatten DocBook's implicit tbody so flex can reach tr/td directly */
+        .navheader tbody,
+        .navfooter tbody {
+                display: block;
+                width: 100%;
+        }
+
+        /* Collapse DocBook-generated nav tables into stacked flex rows */
+        .navheader table,
+        .navfooter table {
+                display: block;
+                width: 100% !important;
+                box-sizing: border-box;
+        }
+
+        .navheader tr,
+        .navfooter tr {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                gap: 4px;
+                width: 100%;
+        }
+
+        .navheader td,
+        .navheader th,
+        .navfooter td {
+                display: block;
+                width: auto !important;
+                text-align: inherit;
+                flex: 1;
+                min-width: 0;
+        }
+
+        /* Hide the redundant term-name row in entry navheaders on mobile */
+        .navheader tr:first-child {
+                display: none;
+        }
+
+        /* Larger touch targets for Prev/Next/Up/Home links */
+        .navheader a,
+        .navfooter a {
+                display: inline-block;
+                padding: 8px 4px;
+                min-height: 44px;
+                line-height: 28px;
+        }
+
+        h1, h2, h3 {
+                font-size: 1.2em;
+        }
+
+        /* Prevent preformatted text and inline code from overflowing */
+        pre, code, tt {
+                white-space: pre-wrap;
+                word-break: break-all;
+                font-size: 0.9em;
+        }
+
+        img {
+                max-width: 100%;
+                height: auto;
+        }
 }
